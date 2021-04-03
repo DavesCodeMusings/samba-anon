@@ -1,2 +1,2 @@
 # samba-anon
-Anonymous Samba share in a Docker container.
+Anonymous Samba share in a Docker container for Raspberry Pi / ARM.
