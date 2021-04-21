@@ -15,6 +15,7 @@
       content: |
         FROM debian:latest
         RUN apt-get update && apt-get install -y samba
+        RUN mkdir /srv/media
         RUN mkdir /srv/public
         RUN mkdir /srv/shared
         COPY smb.conf /etc/samba/smb.conf
@@ -32,6 +33,14 @@
           guest account = nobody
           map to guest = bad user
 
+        [media]
+          path = /srv/media
+          comment = Movies and Music
+          browsable = no
+          public = yes
+          writable = no
+          guest ok = yes
+
         [public]
           path = /srv/public
           comment = Public Files
@@ -43,7 +52,7 @@
         [shared]
           path = /srv/shared
           comment = Shared Files
-          browsable = yes
+          browsable = no
           public = yes
           writable = yes
           guest ok = yes
