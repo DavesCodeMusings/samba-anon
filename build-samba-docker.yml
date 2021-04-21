@@ -28,6 +28,7 @@
       content: |
         [global]
           workgroup = WORKGROUP
+          server min protocol = SMB2
           server string = %h
           security = user
           guest account = nobody
