@@ -1,5 +1,6 @@
 FROM debian:latest
 RUN apt-get update && apt-get install -y samba
+RUN mkdir /srv/media
 RUN mkdir /srv/public
 RUN mkdir /srv/shared
 COPY smb.conf /etc/samba/smb.conf
