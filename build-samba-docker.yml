@@ -20,7 +20,7 @@
         RUN mkdir /srv/shared
         COPY smb.conf /etc/samba/smb.conf
         EXPOSE 445
-        CMD ["/usr/sbin/smbd", "-i", "-s", "/etc/samba/smb.conf"]
+        CMD ["/usr/sbin/smbd", "-F", "-s", "/etc/samba/smb.conf"]
 
   - name: Create smb.conf for anonymous shares
     copy:
