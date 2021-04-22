@@ -15,11 +15,13 @@
       content: |
         FROM debian:latest
         RUN apt-get update && apt-get install -y samba
+        RUN apt-get update && apt-get install -y smbclient
         RUN mkdir /srv/media
         RUN mkdir /srv/public
         RUN mkdir /srv/shared
         COPY smb.conf /etc/samba/smb.conf
         EXPOSE 445
+        HEALTHCHECK --interval=60s CMD smbclient -L //localhost -U guest -N
         CMD ["/usr/sbin/smbd", "-F", "-S", "--no-process-group", "-s", "/etc/samba/smb.conf"]
 
   - name: Create smb.conf for anonymous shares
