@@ -1,4 +1,5 @@
 FROM debian:latest
+LABEL org.opencontainers.image.source = "https://github.com/DavesCodeMusings/samba-anon"
 RUN apt-get update  && apt-get install -y \
   samba \
   smbclient \
