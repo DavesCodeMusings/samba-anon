@@ -9,4 +9,4 @@ RUN mkdir /srv/media /srv/public /srv/shared
 COPY smb.conf /etc/samba/smb.conf
 EXPOSE 445
 HEALTHCHECK --interval=60s CMD smbclient -L //localhost -U guest -N
-CMD ["/usr/sbin/smbd", "-F", "-S", "--no-process-group", "-s", "/etc/samba/smb.conf"]
+CMD ["/usr/sbin/smbd", "-F", "--no-process-group", "-s", "/etc/samba/smb.conf"]
